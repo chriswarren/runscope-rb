@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Runscope::Configuration do
+  after(:each) do
+    Runscope.reset
+  end
+
   it 'should set options when passed a block' do
     domains = ["api.stackexchange.com", /\S+\.desk\.com/]
     bucket = "1234abcd"

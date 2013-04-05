@@ -12,6 +12,10 @@ describe Runscope do
       Runscope.domains = ["api.stackexchange.com", /\S+\.desk\.com/]
     end
 
+    after(:each) do
+      Runscope.reset
+    end
+
     context "when enabled" do
       before(:each) do
         Runscope.enabled = true

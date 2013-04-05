@@ -12,6 +12,10 @@ describe Net::HTTP do
       end
     end
 
+    after(:each) do
+      Runscope.reset
+    end
+
     context "to a url monitored by runscope" do
       it "should modify a to a url that matches a string" do
         FakeWeb.register_uri(:get, "http://api-stackexchange-com-#{@bucket}.runscope.net", :body => "test")

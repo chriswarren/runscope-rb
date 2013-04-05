@@ -14,13 +14,13 @@ module Runscope
   end
 
   def self.monitor_domain?(address)
-    Runscope.domains.any?{ |domain|
+    Runscope.domains.any? do |domain|
       if domain.is_a?(String)
         address == domain
       elsif domain.is_a?(Regexp)
         address =~ domain
       end
-    }
+    end
   end
 
   def self.proxy_domain(address)
