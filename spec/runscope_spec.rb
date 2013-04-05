@@ -61,17 +61,27 @@ describe Runscope do
     it "should not match domains that aren't set" do
       Runscope.monitor_domain?("api.twitter.com").should eq(false)
     end
+
+    it "should raise an error if no domains are set" do
+      Runscope.domains = nil
+      expect { Runscope.monitor_domain?("api.stackexchange.com") }.to raise_error(NoDomainsSetError)
+    end
   end
 
   context 'generating a runscope proxy domain' do
     before(:each) do
-      @bucket_key = "1234abcd"
-      Runscope.bucket = @bucket_key
+      @bucket = "1234abcd"
+      Runscope.bucket = @bucket
     end
 
     it "should return a domain to runscope" do
       Runscope.proxy_domain("api.stackexchange.com").should
-        eq("api-stackexchange-com-#{@bucket_key}.runscope.net")
+        eq("api-stackexchange-com-#{@bucket}.runscope.net")
+    end
+
+    it "should raise an error if no bucket is set" do
+      Runscope.bucket = nil
+      expect { Runscope.proxy_domain("api.stackexchange.com") }.to raise_error(BucketNotSetError)
     end
   end
 end

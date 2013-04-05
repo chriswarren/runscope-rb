@@ -10,11 +10,12 @@ module Runscope
   end
 
   def self.monitor?(address)
-    Runscope.enabled? && Runscope.monitor_domain?(address)
+    enabled? && monitor_domain?(address)
   end
 
   def self.monitor_domain?(address)
-    Runscope.domains.any? do |domain|
+    raise NoDomainsSetError unless domains
+    domains.any? do |domain|
       if domain.is_a?(String)
         address == domain
       elsif domain.is_a?(Regexp)
@@ -24,12 +25,16 @@ module Runscope
   end
 
   def self.proxy_domain(address)
+    raise BucketNotSetError unless bucket
     subdomain = address.gsub(".","-")
-    "#{subdomain}-#{Runscope.bucket}.runscope.net"
+    "#{subdomain}-#{bucket}.runscope.net"
   end
 
   def self.enabled?
     Runscope.enabled
   end
-
 end
+
+class RunscopeError < StandardError; end
+class BucketNotSetError < RunscopeError; end
+class NoDomainsSetError < RunscopeError; end
