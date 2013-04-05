@@ -64,7 +64,9 @@ describe Runscope do
 
     it "should raise an error if no domains are set" do
       Runscope.domains = nil
-      expect { Runscope.monitor_domain?("api.stackexchange.com") }.to raise_error(NoDomainsSetError)
+      expect {
+        Runscope.monitor_domain?("api.stackexchange.com")
+      }.to raise_error(NoDomainsSetError)
     end
   end
 
@@ -81,7 +83,9 @@ describe Runscope do
 
     it "should raise an error if no bucket is set" do
       Runscope.bucket = nil
-      expect { Runscope.proxy_domain("api.stackexchange.com") }.to raise_error(BucketNotSetError)
+      expect {
+        Runscope.proxy_domain("api.stackexchange.com")
+      }.to raise_error(BucketNotSetError)
     end
   end
 end
