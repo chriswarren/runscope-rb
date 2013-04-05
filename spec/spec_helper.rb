@@ -1,5 +1,6 @@
 require 'rspec'
 require 'fakeweb'
+require 'simplecov'
 require 'runscope'
 
 RSpec.configure do |config|
@@ -9,3 +10,4 @@ RSpec.configure do |config|
 end
 
 FakeWeb.allow_net_connect = false
+SimpleCov.start
