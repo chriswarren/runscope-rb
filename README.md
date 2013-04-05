@@ -2,7 +2,7 @@
 
 Start using Runscope in just a couple lines of code for any request being made using Net::HTTP.
 
-Currently supports Net::HTTP only - requests using other libraries like libcurl or sockets won't work yet. If you want to add support for another library that would be fantastic.
+Currently supports Net::HTTP only - requests made using other libraries like libcurl or sockets won't work yet. If you want to add support for another library that would be fantastic.
 
 ## Installation
 

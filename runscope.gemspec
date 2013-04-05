@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Runscope::VERSION
   spec.authors       = ["Chris Warren"]
   spec.email         = ["chris@expectless.com"]
-  spec.description   = %q{Easy setup to pipe specified HTTP traffic through Runscope}
-  spec.summary       = %q{Easy setup to pipe specified HTTP traffic through Runscope}
+  spec.description   = %q{Start using Runscope to monitor your API traffic in minutes}
+  spec.summary       = %q{Start using Runscope to monitor your API traffic in minutes}
   spec.homepage      = "http://github.com/chriswarren/runscope"
   spec.license       = "MIT"
 
