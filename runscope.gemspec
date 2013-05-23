@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["chris@expectless.com"]
   spec.description   = %q{Start using Runscope to monitor your API traffic in minutes}
   spec.summary       = %q{Start using Runscope to monitor your API traffic in minutes}
-  spec.homepage      = "http://github.com/chriswarren/runscope"
+  spec.homepage      = "http://github.com/chriswarren/runscope-rb"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
