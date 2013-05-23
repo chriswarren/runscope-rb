@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-Obviously you'll need a [Runscope][http://runscope.com] account to use this. Then just run the configure block below within your code. If you're making a Rails app you probably want to put it in config/initializers/runscope.rb.
+Obviously you'll need a [Runscope](http://runscope.com) account to use this. Then just run the configure block below within your code. If you're making a Rails app you probably want to put it in config/initializers/runscope.rb.
 
     Runscope.configure do |config|
       config.bucket  = "abcd1234"
@@ -45,7 +45,7 @@ A boolean to control if Runscope is used at all. Set to `false` to stop using Ru
 
 ## Troubleshooting
 
-If your requests aren't being sent through Runscope after you're set up, check how the request is being made. If it's not using Net::HTTP it won't work at this time. Check the section below on Contributing if you want to add support.
+If your requests aren't being sent through Runscope after you're set up, check how the request is being made. If it's not using Net::HTTP it won't work at this time. Check the section below on Contributing if you want to add support for another HTTP library.
 
 ## Contributing
 
