@@ -8,7 +8,7 @@ runscope-rb currently supports Net::HTTP requests. Requests made using other HTT
 
 Add this line to your application's Gemfile:
 
-  gem 'runscope', '~> 0.0.1'
+  gem 'runscope', '~> 0.0.2'
 
 And then execute:
 
@@ -22,10 +22,10 @@ Or install it yourself as:
 
 Obviously you'll need a [Runscope][http://runscope.com] account to use this. Then just run the configure block below within your code. If you're making a Rails app you probably want to put it in config/initializers/runscope.rb.
 
-  Runscope.configure do |config|
-    config.bucket  = "abcd1234"
-    config.domains = ["api.stackexchange.com", "api.github.com", /\S+\.desk\.com/]
-  end
+    Runscope.configure do |config|
+      config.bucket  = "abcd1234"
+      config.domains = ["api.stackexchange.com", "api.github.com", /\S+\.desk\.com/]
+    end
 
 ## Options
 
