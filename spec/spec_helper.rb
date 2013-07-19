@@ -2,7 +2,7 @@ require 'simplecov'
 SimpleCov.start
 
 require 'rspec'
-require 'fakeweb'
+require 'webmock/rspec'
 require 'runscope'
 
 RSpec.configure do |config|
@@ -10,5 +10,3 @@ RSpec.configure do |config|
   config.formatter = 'documentation'
   config.order = "random"
 end
-
-FakeWeb.allow_net_connect = false
