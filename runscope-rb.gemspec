@@ -2,7 +2,6 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'runscope'
-require 'runscope/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "runscope-rb"
@@ -24,4 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~>2.13.0"
   spec.add_development_dependency "fakeweb", "~> 1.3.0"
   spec.add_development_dependency "simplecov"
+  spec.add_development_dependency "debugger", "~> 1.6.1"
+  spec.add_development_dependency "fuubar", "~> 1.1.1"
 end
