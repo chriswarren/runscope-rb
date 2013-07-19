@@ -17,19 +17,24 @@ describe Net::HTTP do
     end
 
     context "to a url monitored by runscope" do
-      it "should modify a to a url that matches a string" do
+      it "modifies a url that matches a string" do
         stub_request(:get, "http://api-stackexchange-com-#{@bucket}.runscope.net")
         Net::HTTP.get_response(URI.parse("http://api.stackexchange.com"))
       end
 
-      it "should modify a request to a url that matches a regexp" do
+      it "modifies a url that matches a regexp" do
         stub_request(:get, "http://test-desk-com-#{@bucket}.runscope.net")
         Net::HTTP.get_response(URI.parse("http://test.desk.com"))
+      end
+
+      it "sets a header if the url specifies a port" do
+        stub_request(:get, "http://test-desk-com-#{@bucket}.runscope.net").with(headers: {'Runscope-Request-Port' => 401})
+        Net::HTTP.get_response(URI.parse("http://test.desk.com:401"))
       end
     end
 
     context "to a url not monitored by runscope" do
-      it "should not modify a request to a url that doesn't match" do
+      it "doesn't modify a url that doesn't match" do
         stub_request(:any, "http://api.twitter.com")
         Net::HTTP.get_response(URI.parse("http://api.twitter.com"))
       end

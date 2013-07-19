@@ -30,6 +30,15 @@ module Runscope
     "#{subdomain}-#{bucket}.runscope.net"
   end
 
+  def self.add_port_header_to_request(request, port)
+    headers = request.instance_variable_get('@header')
+    request.instance_variable_set(
+      '@header',
+      headers.merge('Runscope-Request-Port' => port)
+    )
+    request
+  end
+
   def self.enabled?
     Runscope.enabled
   end
