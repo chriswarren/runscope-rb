@@ -58,4 +58,15 @@ describe Runscope do
       }.to raise_error(BucketNotSetError)
     end
   end
+
+  context '#add_port_header_to_request' do
+    let(:port){ 4000 }
+    let(:request){ Net::HTTP::Get.new('http://example.com') }
+    it 'sets the Runscope-Request-Port header' do
+      modified_request = Runscope.add_port_header_to_request(request, port)
+      expect(modified_request.instance_variable_get('@header')).to(
+        include({'Runscope-Request-Port' => port})
+      )
+    end
+  end
 end
