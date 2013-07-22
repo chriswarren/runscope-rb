@@ -1,5 +1,7 @@
 # runscope-rb
 
+[![Dependency Status](https://gemnasium.com/chriswarren/runscope-rb.png)](https://gemnasium.com/chriswarren/runscope-rb)
+
 A gem to quickly get up and running with Runscope in a few lines of code.
 
 runscope-rb currently supports Net::HTTP requests. Requests made using other HTTP libraries, such as libcurl or sockets, won't be modified. If you want to add support for another HTTP library that would be fantastic. See the section on Contributing at the end of the readme.
