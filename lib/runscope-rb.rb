@@ -1,5 +1,5 @@
-require "runscope/version"
-require "runscope/configuration"
+require "runscope-rb/version"
+require "runscope-rb/configuration"
 require "ext/net_http"
 
 module Runscope
@@ -34,9 +34,13 @@ module Runscope
     headers = request.instance_variable_get('@header')
     request.instance_variable_set(
       '@header',
-      headers.merge('Runscope-Request-Port' => port)
+      headers.merge('Runscope-Request-Port' => "#{port}")
     )
     request
+  end
+
+  def self.is_non_standard_port?(port)
+    port != 443 && port != 80
   end
 
   def self.enabled?

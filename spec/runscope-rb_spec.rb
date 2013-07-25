@@ -1,13 +1,13 @@
 require 'spec_helper'
 
 describe Runscope do
-  context "#version_string" do
+  describe '#version_string' do
     it 'should return correct version string' do
       Runscope.version_string.should eq("Runscope version #{Runscope::VERSION}")
     end
   end
 
-  context '#monitor?' do
+  describe '#monitor?' do
     before(:each){
       Runscope.domains = ["api.stackexchange.com", /\S+\.desk\.com/]
     }
@@ -25,7 +25,7 @@ describe Runscope do
     end
   end
 
-  context '#monitor_domain?' do
+  describe '#monitor_domain?' do
     before(:each){
       Runscope.domains = ["api.stackexchange.com", /\S+\.desk\.com/]
     }
@@ -41,7 +41,7 @@ describe Runscope do
     end
   end
 
-  context '#proxy_domain' do
+  describe '#proxy_domain' do
     before(:each) do
       @bucket = "1234abcd"
       Runscope.bucket = @bucket
@@ -59,14 +59,20 @@ describe Runscope do
     end
   end
 
-  context '#add_port_header_to_request' do
+  describe '#add_port_header_to_request' do
     let(:port){ 4000 }
     let(:request){ Net::HTTP::Get.new('http://example.com') }
     it 'sets the Runscope-Request-Port header' do
       modified_request = Runscope.add_port_header_to_request(request, port)
       expect(modified_request.instance_variable_get('@header')).to(
-        include({'Runscope-Request-Port' => port})
+        include({'Runscope-Request-Port' => "#{port}"})
       )
     end
+  end
+
+  describe '#is_non_standard_port?' do
+    it{expect(Runscope.is_non_standard_port?(80)).to be_false}
+    it{expect(Runscope.is_non_standard_port?(443)).to be_false}
+    it{expect(Runscope.is_non_standard_port?(6000)).to be_true}
   end
 end
