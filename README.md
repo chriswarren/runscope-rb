@@ -10,7 +10,7 @@ runscope-rb currently supports Net::HTTP requests. Requests made using other HTT
 
 Add this line to your application's Gemfile:
 
-    gem 'runscope', '~> 0.0.3'
+    gem 'runscope-rb'
 
 And then execute:
 
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install runscope
+    $ gem install runscope-rb
 
 ## Usage
 
