@@ -26,7 +26,7 @@ module Runscope
 
   def self.proxy_domain(address)
     raise BucketNotSetError unless bucket
-    subdomain = address.gsub(".","-")
+    subdomain = address.gsub("-", "--").gsub(".", "-")
     "#{subdomain}-#{bucket}.runscope.net"
   end
 
