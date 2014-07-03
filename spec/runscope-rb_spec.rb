@@ -51,6 +51,10 @@ describe Runscope do
       eq("api-stackexchange-com-#{@bucket}.runscope.net")
     )}
 
+    it{expect(Runscope.proxy_domain("some-app.example.com")).to(
+      eq("some--app-example-com-#{@bucket}.runscope.net")
+    )}
+
     it "should raise an error if no bucket is set" do
       Runscope.bucket = nil
       expect {
